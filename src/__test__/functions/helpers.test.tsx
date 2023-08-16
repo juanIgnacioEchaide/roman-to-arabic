@@ -1,11 +1,7 @@
 import React from 'react';
-import { convertRomanToArabic } from '../../utils/helpers'
+import { convertRomanToArabic, isValidRomanNumeral } from '../../utils/helpers'
 
 describe('convertRomanToArabic function', () => {
-
-  it('works', () => {
-    console.log(convertRomanToArabic('IX'))
-  })
   it('converts single Roman numerals correctly', () => {
     expect(convertRomanToArabic('I')).toBe(1);
     expect(convertRomanToArabic('V')).toBe(5);
@@ -34,4 +30,28 @@ describe('convertRomanToArabic function', () => {
     expect(convertRomanToArabic('CMXCIX')).toBe(999);
     expect(convertRomanToArabic('MCMXCIV')).toBe(1994);
   });
+});
+
+
+describe('isValidRomanNumeral', () => {
+  it('should return true for a valid Roman numeral', () => {
+    expect(isValidRomanNumeral('III')).toBe(true);
+    expect(isValidRomanNumeral('IX')).toBe(true);
+    expect(isValidRomanNumeral('XLII')).toBe(true);
+    expect(isValidRomanNumeral('XC')).toBe(true);
+    expect(isValidRomanNumeral('CDXLIV')).toBe(true);
+    expect(isValidRomanNumeral('CM')).toBe(true);
+    expect(isValidRomanNumeral('MMMCMXCIX')).toBe(true);
+  });
+
+  it('should return false for an empty string', () => {
+    expect(isValidRomanNumeral('')).toBe(false);
+  });
+
+  it('should return false for a string with invalid characters', () => {
+    expect(isValidRomanNumeral('ABC')).toBe(false);
+    expect(isValidRomanNumeral('123')).toBe(false);
+    expect(isValidRomanNumeral('XYZ')).toBe(false);
+  });
+
 });

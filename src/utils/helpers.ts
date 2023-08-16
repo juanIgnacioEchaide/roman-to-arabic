@@ -17,9 +17,8 @@ export const convertRomanToArabic = (romanNumeral: string): number => {
   
     return decimalNumber;
   };
-
-  export const isValidRomanNumeral = (romanNumeral: string): boolean => {
   
+  export const isValidRomanNumeral = (romanNumeral: string): boolean => {
     const symbolIndexMap: { [key: string]: number } = {};
     symbols.forEach((symbol, index) => {
       symbolIndexMap[symbol.symbol] = index;
