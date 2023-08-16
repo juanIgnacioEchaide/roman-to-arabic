@@ -25,13 +25,37 @@ export const convertRomanToArabic = (romanNumeral: string): number => {
       symbolIndexMap[symbol] = index;
     });
   
-    const isValidOrder = romanNumeral.split('').every((symbol, index, array) => {
+    let prevIndex = -1;
+    let repeatCount = 0;
+  
+    for (let i = romanNumeral.length - 1; i >= 0; i--) {
+      const symbol = romanNumeral[i];
       const currentIndex = symbolIndexMap[symbol];
-      const prevIndex = symbolIndexMap[array[index - 1]];
   
-      // Check if the current symbol is greater than or equal to the previous symbol
-      return index === 0 || currentIndex >= prevIndex;
-    });
+      if (currentIndex === undefined) {
+        return false;
+      }
   
-    return isValidOrder;
+      if (currentIndex < prevIndex) {
+        if (
+          (currentIndex === symbolIndexMap['I'] && prevIndex !== symbolIndexMap['V'] && prevIndex !== symbolIndexMap['X']) ||
+          (currentIndex === symbolIndexMap['X'] && prevIndex !== symbolIndexMap['L'] && prevIndex !== symbolIndexMap['C']) ||
+          (currentIndex === symbolIndexMap['C'] && prevIndex !== symbolIndexMap['D'] && prevIndex !== symbolIndexMap['M'])
+        ) {
+          return false;
+        }
+        repeatCount = 0; // Move this line outside of the "if" block
+      } else {
+        repeatCount = currentIndex === prevIndex ? repeatCount + 1 : 0;
+  
+        if (repeatCount > 2) {
+          return false;
+        }
+      }
+      prevIndex = currentIndex;
+    }
+  
+    return true;
   };
+  
+  

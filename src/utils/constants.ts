@@ -13,3 +13,22 @@ export const RomanNumerals: Record<string, number> = {
     CM : 900,
     M : 1000,
   };
+
+ export const SymbolsOrder = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
+
+export enum MESSAGE {
+  ERROR = 'ERROR',
+  INFO = 'INFO'
+}
+
+export enum COLOR {
+  PRIMARY = 'black',
+  ERROR = 'red',
+}
+
+export enum FONT_SIZE {
+  TITLE = '7vh'
+}
+export const Wording = {
+  errorMessage: 'Is not a valid roman number. Try again'
+}

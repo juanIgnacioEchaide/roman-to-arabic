@@ -1,12 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import DialogTemplate from './component/template/DialogueTemplate';
-import { convertRomanToArabic } from './utils/helpers';
+import ConversionPage from './component/pages/ConversionPage';
 
 function App() {
   return (
-     <DialogTemplate convertToArabic={convertRomanToArabic} />
+     <ConversionPage />
   );
 }
 
