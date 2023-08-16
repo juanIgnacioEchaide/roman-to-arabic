@@ -1,5 +1,5 @@
 import { ClearButton } from "../atom/Button"
-import { RomanInput } from "../atom/Input"
+import { RomanInput } from "../atom/RomanInput"
 import { UpperTitle, LowerTitle, ErrorTitle, OutputTitle } from "../atom/Title"
 
 export interface NumberConverterProps {

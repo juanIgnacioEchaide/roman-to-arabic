@@ -6,6 +6,7 @@ interface ClearButtonProps {
 
 const ClearButton = ({clearFunction}: ClearButtonProps): JSX.Element => {
     return <Button
+    data-testid="clear-button"
     style={{
       width: '30vw',
       fontSize: '3vh',

@@ -8,6 +8,7 @@ interface RomanInputProps {
 
 const RomanInput = ({ handleChange, romanNumeral }: RomanInputProps) => {
   return <Input
+          data-testid="roman-input"
           style={{
             marginLeft: '1vw',
             width: '30vw',

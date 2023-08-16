@@ -5,6 +5,7 @@ import { COLOR, FONT_SIZE } from "../../utils/constants";
 const UpperTitle = (): JSX.Element =>  {
 
     return  <Typography
+                data-testid="upper-title"
                 style={{
                     fontSize: FONT_SIZE.TITLE,
                     paddingTop: '1vh'
@@ -18,6 +19,7 @@ const UpperTitle = (): JSX.Element =>  {
 const LowerTitle = (): JSX.Element =>  {
 
     return <Typography
+            data-testid="lower-title"
             style={{
             fontSize: FONT_SIZE.TITLE,
             }}
@@ -29,6 +31,7 @@ const LowerTitle = (): JSX.Element =>  {
 const ErrorTitle = (): JSX.Element =>  {
 
     return <Typography
+            data-testid="error-title"
             style={{
             fontSize: FONT_SIZE.TITLE,
             color: COLOR.ERROR
@@ -44,6 +47,7 @@ interface OutputTitleProps {
 
 const OutputTitle = ({ decimalValue }: OutputTitleProps) => {
     return <Typography
+            data-testid="output-title"
             style={{
             fontSize: FONT_SIZE.TITLE,
             color: 'blue',

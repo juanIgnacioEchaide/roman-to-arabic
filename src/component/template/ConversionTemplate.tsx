@@ -1,5 +1,5 @@
-import { Container } from '@mui/material';
 import { NumberConverter, NumberConverterProps } from '../organism/NumberConverter';
+import { AppContainer, ConverterContainer } from '../atom/Container';
 
 const ConversionTemplate = ({   
       handleChange, 
@@ -10,28 +10,18 @@ const ConversionTemplate = ({
     }: NumberConverterProps) => {
 
   return (
-    <Container 
-      style={{
-        justifyContent: 'center ',
-        alignItems: 'center',
-        width: '100vw',
-        padding: '30vh'
-      }}>
-      <Container
-        style={{
-          width: '100vw',
-          display: 'flex',
-          flexDirection: 'column',
-        }}>
+    <AppContainer>
+      <ConverterContainer>
           <NumberConverter
+            data-testid="conversion-template" 
             decimalValue={decimalValue}
             error={error}
             handleChange={handleChange}
             romanNumeral={romanNumeral}
             setRomanNumeral={setRomanNumeral}
           />
-        </Container>
-    </Container>
+        </ConverterContainer>
+    </AppContainer>
   );
 };
 

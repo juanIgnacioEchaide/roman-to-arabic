@@ -1,8 +1,8 @@
-import { SetStateAction, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { convertRomanToArabic, isValidRomanNumeral } from '../../utils/helpers';
 import ConversionTemplate from '../template/ConversionTemplate';
 
-const ConversioPage = () => {
+const ConversionPage = () => {
   const [romanNumeral, setRomanNumeral] = useState<string>('');
   const [decimalValue, setDecimalValue] = useState<number>(0);
   const [error, setError] = useState<boolean>(false)
@@ -29,14 +29,15 @@ const ConversioPage = () => {
   }, [romanNumeral, handleConvert]);
 
   return (
-    <ConversionTemplate   
-    handleChange={handleChange}
-    romanNumeral={romanNumeral}
-    setRomanNumeral={setRomanNumeral}
-    error={error}
-    decimalValue={decimalValue} 
-    />
+    <ConversionTemplate  
+      data-testid="conversion-page" 
+      handleChange={handleChange}
+      romanNumeral={romanNumeral}
+      setRomanNumeral={setRomanNumeral}
+      error={error}
+      decimalValue={decimalValue} 
+      />
   );
 };
 
-export default ConversioPage;
+export default ConversionPage;
