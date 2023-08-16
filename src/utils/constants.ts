@@ -44,3 +44,5 @@ export const symbols: SymbolInfo[] = [
   { symbol: 'D', value: 500 },
   { symbol: 'M', value: 1000 },
 ];
+
+export const NUMBER_TOP_LIMIT = 3000

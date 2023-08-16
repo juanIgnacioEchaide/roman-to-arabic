@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { convertRomanToArabic, isValidRomanNumeral } from '../../utils/helpers';
 import ConversionTemplate from '../template/ConversionTemplate';
+import { NUMBER_TOP_LIMIT } from '../../utils/constants';
 
 const ConversionPage = () => {
   const [romanNumeral, setRomanNumeral] = useState<string>('');
@@ -9,7 +10,7 @@ const ConversionPage = () => {
 
   const handleConvert = useCallback(() => {
     const conversion = convertRomanToArabic(romanNumeral)
-      if(isNaN(conversion)){
+      if(isNaN(conversion) || conversion >= NUMBER_TOP_LIMIT){
         setError(true);
       }
       setDecimalValue(conversion)
