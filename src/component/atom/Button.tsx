@@ -1,8 +1,5 @@
 import { Button } from "@mui/material"
-
-interface ClearButtonProps {
-    clearFunction: (value: React.SetStateAction<string>) => void
-}
+import { ClearButtonProps } from "../../model/props"
 
 const ClearButton = ({clearFunction}: ClearButtonProps): JSX.Element => {
     return <Button

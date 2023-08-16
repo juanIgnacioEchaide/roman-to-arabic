@@ -1,14 +1,8 @@
+import { NumberConverterProps } from "../../model/props"
 import { ClearButton } from "../atom/Button"
 import { RomanInput } from "../atom/RomanInput"
 import { UpperTitle, LowerTitle, ErrorTitle, OutputTitle } from "../atom/Title"
 
-export interface NumberConverterProps {
-    handleChange: (romanNum: string) => void, 
-    romanNumeral: string, 
-    setRomanNumeral: React.Dispatch<React.SetStateAction<string>>,
-    error: boolean, 
-    decimalValue: number,
-}
 
 const NumberConverter = ({
     handleChange, 

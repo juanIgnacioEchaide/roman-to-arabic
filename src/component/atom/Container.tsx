@@ -1,8 +1,5 @@
 import { Container } from "@mui/material"
-
-interface ContainerProps {
-    children: any
-}
+import { ContainerProps } from "../../model/props"
 
 const AppContainer = ({ children }: ContainerProps): JSX.Element => {
 

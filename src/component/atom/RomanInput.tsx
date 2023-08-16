@@ -1,10 +1,6 @@
 import React from 'react'
 import { Input } from '@mui/material';
-
-interface RomanInputProps {
-  handleChange: (romanNum: string) => void
-  romanNumeral: string
-}
+import { RomanInputProps } from '../../model/props';
 
 const RomanInput = ({ handleChange, romanNumeral }: RomanInputProps) => {
   return <Input

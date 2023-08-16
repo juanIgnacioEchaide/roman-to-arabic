@@ -1,5 +1,6 @@
-import { NumberConverter, NumberConverterProps } from '../organism/NumberConverter';
+import { NumberConverter } from '../organism/NumberConverter';
 import { AppContainer, ConverterContainer } from '../atom/Container';
+import { NumberConverterProps } from '../../model/props';
 
 const ConversionTemplate = ({   
       handleChange, 
