@@ -1,4 +1,5 @@
-import { RomanNumerals } from "./constants";
+import { SymbolInfo } from "../model/utils";
+import { RomanNumerals, symbols } from "./constants";
 
 export const convertRomanToArabic = (romanNumeral: string): number => {
     const decimalValues = romanNumeral.split('').map((symbol) => RomanNumerals[symbol]);
@@ -16,46 +17,32 @@ export const convertRomanToArabic = (romanNumeral: string): number => {
   
     return decimalNumber;
   };
-  
+
   export const isValidRomanNumeral = (romanNumeral: string): boolean => {
-    const validSymbols = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
   
     const symbolIndexMap: { [key: string]: number } = {};
-    validSymbols.forEach((symbol, index) => {
-      symbolIndexMap[symbol] = index;
+    symbols.forEach((symbol, index) => {
+      symbolIndexMap[symbol.symbol] = index;
     });
   
-    let prevIndex = -1;
-    let repeatCount = 0;
-  
-    for (let i = romanNumeral.length - 1; i >= 0; i--) {
-      const symbol = romanNumeral[i];
+    const isValidOrder = romanNumeral.split('').every((symbol, index, array) => {
       const currentIndex = symbolIndexMap[symbol];
+      const prevIndex = symbolIndexMap[array[index - 1]];
   
-      if (currentIndex === undefined) {
-        return false;
-      }
+      return index === 0 || currentIndex >= prevIndex;
+    });
   
-      if (currentIndex < prevIndex) {
-        if (
-          (currentIndex === symbolIndexMap['I'] && prevIndex !== symbolIndexMap['V'] && prevIndex !== symbolIndexMap['X']) ||
-          (currentIndex === symbolIndexMap['X'] && prevIndex !== symbolIndexMap['L'] && prevIndex !== symbolIndexMap['C']) ||
-          (currentIndex === symbolIndexMap['C'] && prevIndex !== symbolIndexMap['D'] && prevIndex !== symbolIndexMap['M'])
-        ) {
-          return false;
-        }
-        repeatCount = 0; // Move this line outside of the "if" block
-      } else {
-        repeatCount = currentIndex === prevIndex ? repeatCount + 1 : 0;
-  
-        if (repeatCount > 2) {
-          return false;
-        }
-      }
-      prevIndex = currentIndex;
+    if (!isValidOrder) {
+      return false;
     }
   
-    return true;
-  };
+    const validSymbols = symbols.map(symbol => symbol.symbol);
+    const isValidSymbol = (symbol: string) => validSymbols.includes(symbol);
   
+    const isValidCharacter = (char: string) => {
+      return char.split('').every(isValidSymbol);
+    };
+  
+    return romanNumeral.length > 0 && isValidCharacter(romanNumeral);
+  };
   

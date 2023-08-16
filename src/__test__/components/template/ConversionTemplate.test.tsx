@@ -3,7 +3,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import  ConversionTemplate from '../../../component/template/ConversionTemplate';
 
-// Mock the dependencies
 jest.mock('../../../component/atom/Container', () => ({
   AppContainer: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="app-container">{children}</div>

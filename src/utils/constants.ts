@@ -1,3 +1,5 @@
+import { SymbolInfo } from "../model/utils";
+
 export const RomanNumerals: Record<string, number> = {
     I: 1,
     IV : 4,
@@ -32,3 +34,13 @@ export enum FONT_SIZE {
 export const Wording = {
   errorMessage: 'Is not a valid roman number. Try again'
 }
+
+export const symbols: SymbolInfo[] = [
+  { symbol: 'I', value: 1 },
+  { symbol: 'V', value: 5 },
+  { symbol: 'X', value: 10 },
+  { symbol: 'L', value: 50 },
+  { symbol: 'C', value: 100 },
+  { symbol: 'D', value: 500 },
+  { symbol: 'M', value: 1000 },
+];
